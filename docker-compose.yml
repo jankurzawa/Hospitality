@@ -1,0 +1,122 @@
+version: '3.4'
+
+services:
+  db:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    environment:
+         - ACCEPT_EULA=Y
+         - MSSQL_SA_PASSWORD=1Secure*Password1
+    ports:
+        - 1433:1433
+    volumes:
+      - database:/var/opt/mssql
+  hospitality.examination.api:
+    image: ${DOCKER_REGISTRY-}hospitalityexaminationapi
+    build:
+      context: .
+      dockerfile: src/Hospitality.Examination.API/Dockerfile
+    restart: on-failure
+    depends_on:
+      - rabbitmq
+      - db
+    links: 
+        - rabbitmq
+
+  hospitality.checkup.api:
+    image: ${DOCKER_REGISTRY-}hospitalitycheckupapi
+    build:
+      context: .
+      dockerfile: src/Hospitality.CheckUp.API/Dockerfile
+    restart: on-failure
+    depends_on:
+      - db
+
+  hospitality.identity.api:
+    image: ${DOCKER_REGISTRY-}hospitalityidentityapi
+    build:
+      context: .
+      dockerfile: src/Hospitality.Identity.API/Dockerfile
+    restart: on-failure
+    depends_on:
+      - db
+
+  hospitality.government.insurance.api:
+    image: ${DOCKER_REGISTRY-}hospitalitygovernmentinsuranceapi
+    build:
+      context: .
+      dockerfile: src/Hospitality.Government.Insurance.API/Dockerfile
+
+  hospitality.patient.api:
+    image: ${DOCKER_REGISTRY-}hospitalitypatientapi
+    build:
+      context: .
+      dockerfile: src/Hospitality.Patient.API/Dockerfile
+    restart: on-failure
+    depends_on:
+      - rabbitmq
+    links: 
+      - rabbitmq
+
+  hospitality.web:
+    image: ${DOCKER_REGISTRY-}hospitalityweb
+    build:
+      context: .
+      dockerfile: src/Hospitality.Web/Dockerfile
+    restart: on-failure
+
+  hospitality.gateway.api:
+    image: ${DOCKER_REGISTRY-}hospitalitygatewayapi
+    build:
+      context: .
+      dockerfile: src/Hospitality.Gateway.API/Dockerfile
+
+  hostedservice:
+    image: ${DOCKER_REGISTRY-}hostedservice
+    build:
+      context: .
+      dockerfile: HostedService/Dockerfile
+    restart: on-failure
+    depends_on:
+      - rabbitmq
+    links: 
+      - rabbitmq
+
+  emailservice:
+    image: ${DOCKER_REGISTRY-}emailservice
+    build:
+      context: .
+      dockerfile: src/EmailService/Dockerfile
+    restart: on-failure
+    depends_on:
+      - rabbitmq
+    links: 
+      - rabbitmq
+
+  rabbitmq: 
+    image: rabbitmq:3-management
+    container_name: "rabbitmq"
+    hostname: "rabbitmq"
+    labels:
+      NAME: "rabbitmq"
+    ports:
+    - "4369:4369"  
+    - "5671:5671"
+    - "5672:5672"
+    - "25672:25672"
+    - "15671:15671"
+    - "15672:15672" 
+    healthcheck:
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+volumes:
+  database:    
+ 
+
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+﻿@using Hospitality.Common.DTO.Patient;
+@model Hospitality.Web.Models.AppointDoctorToPatientModel;
+
+<head>
+    <link rel="stylesheet" href="~/css/AppointDoctor.css" asp-append-version="true" />
+    <script src="@Url.Content("~/js/AppointDoctor.js")" defer></script>
+
+</head>
+
+<body>
+
+    <div id="appointForm">
+        @using (Html.BeginForm("Assign", "AssignDoctorToPatient"))
+        {
+            <h2>Assign Doctor to Patient</h2>
+
+                    <br>
+                    <div>
+                        <p>
+                            <label id="peselLabel" for="" style="font-size: 140%">Patient Pesel</label><br>
+                            <input id="peselInput" name="peselInput" type="text" style="width:100%;" font-size="18px" readonly value= @ViewBag.PeselP>
+                        </p>
+                        <label id="doctorLabel" for="" style="font-size: 140%">Select Doctor</label><br>
+                        <p>
+                    @Html.DropDownListFor(m => m.SelectedDoctorName, new SelectList(Model.Doctors.Select(x=>x.Name)), new { style="font-size:140%;", id="specialistDropDownList", @Class = "Mytextarea" })
+                        </p>
+                    </div>
+
+                    <br>
+                    <p class="buttons">
+<button id="sendButton" type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-dismiss="modal">  Assign  </button>
+                        <button id="resetButton" class="btn btn-primary" type="reset">  Reset  </button>
+
+                    </p>
+        }
+
+    </div>
+
+     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="errorModalLabel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="informationMessage fs-5">Patient not found</p>
+                    </div>
+                    <div class="modal-footer" id="modalForm">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Add validation PESEL -->
+    @if (ViewBag.Show == "show")
+    {
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="errorModalLabel"></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="informationMessage fs-5">Patient not found</p>
+                            </div>
+                            <div class="modal-footer" id="modalForm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+    }
+
+</body>
+
+@section Scripts {
+    @if (ViewBag.Show == "show")
+    {
+                <script>
+                    $(function(){
+                        $("#exampleModal").modal("show");
+                    });
+                </script>
+    }
+}
+

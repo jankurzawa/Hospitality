@@ -1,0 +1,86 @@
+﻿@using Hospitality.Common.DTO.Patient
+@model Hospitality.Web.Models.PatientResultViewModel
+
+
+<head>
+    <link rel="stylesheet" href="~/css/Registration.css" asp-append-version="true" />
+    <script src="@Url.Content("~/js/RegistrationValidation.js")" defer></script>
+</head>
+
+<body>
+    <content>
+        <div id="registrationForm">
+            @using (Html.BeginForm("RegistrationPost", "Registration", FormMethod.Post))
+            {
+
+                    <h2>Patient register form</h2>
+
+                    <div>
+                        <p>
+                            <label id="nameLabel" for="">Name</label><br>
+                        @Html.TextBoxFor(x => x.PatientName, new { Value =  TempData["Name"], id= "nameTextBoxFor"})
+
+                        </p>
+                        <p>
+                            <label id="surnameLabel" for="">Surname</label><br>
+                        @Html.TextBoxFor(x => x.PatientSurname, new { style="width:100%;",  id= "surname" })
+                        </p>
+                        <p>
+                            <label id="peselLabel" for="">Pesel</label>
+                            <input id="pesel" name="peselInput" type="text" style="width:100%;"font-size="18px"readonly value= @ViewBag.PeselP>
+                        </p>
+                        <p>
+                            <label id="dateOfBirthLabel" for="">Date of birth</label><br>
+                        @Html.EditorFor(x => x.BirthDate, "{0:yyyy-MM-dd}", new { htmlAttributes = new { @max= DateTime.Today.ToString("yyyy-MM-dd"), @min= "1910-01-01"} })
+
+                        </p>
+                        <p>
+                            <label id="addressLabel" for="">Address</label><br>
+                        @Html.TextBoxFor(x => x.Address, new { style="width:100%;", id= "address" })
+                        </p>
+                        <p>
+                            <label id="emailLabel" for="">Email</label><br>
+                        @Html.TextBoxFor(x => x.Email, new { style="width:100%;", id= "email" })
+                        </p>
+                        <p>
+                            <label id="phoneNumberLabel" for="">Phone number</label><br>
+                        @Html.TextBoxFor(x => x.PhoneNumber, new { style="width:100%;", id= "phone" })
+                        <br>
+                    </p>
+                    <p>
+                        @Html.DropDownListFor(m => m.NameOfSelectedDoctor, new SelectList(Model.Doctors.Select(d=>d.Name)), "--Select Doctor--", new { style="font-size:120%;", id="specialist"})
+                    </p>
+                </div>
+
+                    <br>
+                    <p class="full-width">
+                        <button id="sendButton" type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-dismiss="modal">Add new patient</button>
+
+                    </p>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header  text-black">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body justify-content-center" id="modalContactBody">
+                                    <p class="errorMessage fs-5">Would you like to save patient visit?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="modal-footer " id="modalForm">
+                                        <button id="saveButton" type="submit" class="btn btn-secondary fs-6" data-save="modal">Save</button>
+                                        <button id="cancelButton" type="button" class="btn btn-secondary fs-6" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            }
+        </div>
+    </content>
+</body>
+
+
+

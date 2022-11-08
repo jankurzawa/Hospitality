@@ -1,0 +1,14 @@
+﻿global using Azure.Extensions.AspNetCore.Configuration.Secrets;
+global using Azure.Identity;
+global using Azure.Security.KeyVault.Secrets;
+global using Azure.Storage.Queues;
+global using Hospitality.Common.DTO.Examination;
+global using Hospitality.Common.FakeExamination;
+global using Hospitality.Common.Middlewares;
+global using HostedService.Extensions;
+global using HostedService.RabbitMQ;
+global using Newtonsoft.Json;
+global using RabbitMQ.Client.Events;
+global using RabbitMQ.Client;
+global using System.Diagnostics;
+global using System.Text;

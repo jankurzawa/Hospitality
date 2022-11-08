@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: identity-deployment
+  labels:
+    app: identity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: identity
+  template:
+    metadata:
+      labels:
+        app: identity
+    spec:
+      containers:
+      - name: identity
+        image: hospitalitycontainerregistry.azurecr.io/hospitality_identity:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: identity-service
+spec:
+  type: ClusterIP  
+  selector:
+    app: identity
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

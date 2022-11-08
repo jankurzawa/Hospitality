@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: examination-deployment
+  labels:
+    app: examination
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: examination
+  template:
+    metadata:
+      labels:
+        app: examination
+    spec:
+      containers:
+      - name: examination 
+        image: hospitalitycontainerregistry.azurecr.io/hospitality_examinations:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: examination-service
+spec:
+  type: ClusterIP  
+  selector:
+    app: examination
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

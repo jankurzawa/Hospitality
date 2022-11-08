@@ -1,0 +1,47 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body::before {
+    opacity: 0.5;
+}
+
+
+content {
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.overlay {
+    display: flex;
+    background-color: white;
+    position: center;
+    opacity: 0.9;
+    color: black;
+    height: 80%;
+    width: 100%;
+    margin-top: 25%;
+}
+button{
+    margin-top: 10px;
+}
+#submitButton {
+    margin-left: 80%;
+    margin-top: 16%;
+    border: 1px solid black;
+}

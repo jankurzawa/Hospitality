@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temperature-control-deployment
+  labels:
+    app: temperature-control
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temperature-control
+  template:
+    metadata:
+      labels:
+        app: temperature-control
+    spec:
+      containers:
+      - name: temperature-control 
+        image: hospitalitycontainerregistry.azurecr.io/hospitality_temperature-control:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: temperature-control-service
+spec:
+  type: ClusterIP  
+  selector:
+    app: temperature-control
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

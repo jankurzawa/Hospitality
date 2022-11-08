@@ -1,0 +1,177 @@
+﻿
+label, input, #finishButton, textarea {
+    font-size: 20px;
+    width: 100%
+}
+div.relative {
+    position: relative;
+    width: 745px;
+    height: 150px;
+}
+
+div.absolute {
+    
+    display: inline-block;
+}
+div.textField {
+    border: 1px solid blue;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 15% 25%;
+    grid-gap: 4%;
+    grid-template-rows: 150px;
+}
+#checkUpForm {
+    background-color: #d4ebf3;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    border: 1px solid black;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 4%;
+    padding-bottom: 2%;
+}
+.insured {
+    background-color: lightgreen;
+    border: 1px solid black;
+    opacity: 0.9;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 75% 20%;
+    grid-gap: 4%;
+}
+
+.notInsured {
+    background-color: lightcoral;
+    border: 1px solid black;
+    opacity: 0.9;
+}
+
+
+#orderButton, #resultButton {
+    height: 20%;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 25%;
+}
+textarea {
+    resize: none;
+}
+
+input {
+    height: 50px;
+    width: 230px;
+    font-size: 24px;
+}
+
+p {
+    margin-top: 6%;
+    height: 55px;
+    width: 155px;
+    font-size:larger;
+    text-align:center;
+}
+
+
+
+label, input, #finishButton, textarea {
+    font-size: 20px;
+    width: 100%
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 65% 25%;
+    grid-gap: 4%;
+    grid-template-rows: 150px;
+}
+
+#checkUpForm {
+    background-color: #d4ebf3;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    border: 1px solid black;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 4%;
+    padding-bottom: 2%;
+}
+
+.insured {
+    background-color: lightgreen;
+    border: 1px solid black;
+    opacity: 0.9;
+}
+
+.notInsured {
+    background-color: lightcoral;
+    border: 1px solid black;
+    opacity: 0.9;
+}
+
+
+#orderButton, #resultButton {
+    height: 20%;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 25%;
+}
+
+textarea {
+    resize: none;
+}
+
+input {
+    height: 50px;
+    width: 250px;
+    font-size: 24px;
+}
+
+p {
+    margin-top: 6%;
+    height: 55px;
+    width: 155px;
+    font-size: larger;
+    text-align: center;
+}
+
+#newForm {
+    display: grid;
+    grid-template-columns: 90% 24%;
+    grid-gap: 1%;
+    grid-template-rows: 850px;
+}
+
+#absolute {
+
+}
+#newTemperatureInput{
+    width: 70px;
+}
+#kkk {
+    display: grid;
+    grid-template-columns: 190px 50px;
+}
+#actualPatientTemperature {
+    width: 180px;
+    font-size: 17px;
+}
+#temperatureInput {
+    width: 260px;
+}
+#Temporary {
+    background-color: #d4ebf3;
+    border: 1px solid black;
+    margin-top: 40%;
+    margin-bottom: 180%;
+
+
+    padding-top: 8%;
+    padding-bottom: 8%;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+

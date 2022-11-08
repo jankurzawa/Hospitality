@@ -1,0 +1,24 @@
+﻿@model Hospitality.Web.Models.PatientDataCheckUpViewModel
+
+<head>
+    <link rel="stylesheet" href="~/css/Examination.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div id="resultForm">
+        <table class="table table-hover table-striped">  
+            @using (Html.BeginForm("OrderAnExamination", "Examination", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.PatientPesel, Model.PatientPesel)
+                @Html.DropDownListFor(m => m.ChosenExamination, new SelectList(Model.AvailableExaminations), "--Select Examination--", new { style="font-size:160%;"})
+                <br>
+                    <button id="finishButton" typeof="submit" class="btn btn-primary"  data-bs-toggle="modal"  data-bs-target="#exampleModal" >  Order an examination  </button>
+            }
+        </table> 
+    </div>                    <br> <br> <br>  <br>
+    <p class="buttons">
+        @*<a asp-controller="CheckUp" asp-action="CheckUp">
+            <button id="backButton" type="button" class="btn btn-primary" data-toggle="modal">  Back to check up  </button>
+        </a>*@
+    </p>
+</body>

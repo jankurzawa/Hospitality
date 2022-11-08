@@ -1,0 +1,35 @@
+﻿@using Hospitality.Common.DTO.Patient;
+@model Hospitality.Web.Models.AppointDoctorToPatientModel;
+
+<head>
+    <link rel="stylesheet" href="~/css/StartVisit.css" asp-append-version="true" />
+        <script src="@Url.Content("~/js/CheckPesel.js")" defer></script>
+
+</head>
+
+<body>
+    <div id="startVisitForm">
+        @using (Html.BeginForm("CheckPatient", "CheckPatient", FormMethod.Post))
+        {
+                                            <div>                    
+                                                <p>
+                                                    <label id="peselLabel" for="">Patient PESEL</label><br>
+                    @Html.TextBoxFor(x => x.PatientPesel, new { style="width:100%;", id="pesel" })
+                                                 <label id="peselInfoLabel" for="" style="font-size: 1rem; color: red">Input 11 numbers</label><br>
+
+                                                </p>
+                                             </div>
+
+                                    <br>
+                                             <p class="buttons">
+                                                  <button id="sendButton" type="submit" class="btn btn-primary">  Start  </button>
+                                             </p>
+        }
+
+    </div>
+
+</body>
+
+
+
+

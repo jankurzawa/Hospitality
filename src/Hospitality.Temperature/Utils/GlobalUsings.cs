@@ -1,0 +1,11 @@
+﻿global using Azure.Extensions.AspNetCore.Configuration.Secrets;
+global using Azure.Identity;
+global using Azure.Security.KeyVault.Secrets;
+global using PatientTemperatureControl.Models;
+global using PatientTemperatureControl.Services;
+global using MongoDB.Bson;
+global using MongoDB.Bson.Serialization.Attributes;
+global using Hospitality.Common.DTO.Temperature;
+global using Microsoft.Extensions.Options;
+global using MongoDB.Driver;
+global using Microsoft.AspNetCore.Mvc;

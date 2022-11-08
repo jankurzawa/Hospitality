@@ -1,0 +1,46 @@
+﻿
+h2 {
+    position: center;
+    font-size: 30px;
+}
+#registrationForm {
+    background-color: #d4ebf3;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    border: 1px solid black;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 4%;
+    padding-bottom: 2%;
+}
+
+label, input, #checkButton, #sendButton, #resetButton, #insuranseButton, #spetialistList {
+    font-size: 18px;
+}
+
+input {
+    width: 100%;
+}
+#peselLabel, #dateOfBirthLabel, #peselInput, #dateOfBirthInput {
+    width: 47%;
+}
+#insuranseInput {
+    width: 25%
+}
+/*#resetButton, #insuranseButton, #dateOfBirthLabel, #dateOfBirthInput {
+    margin-left: 5%;
+}*/
+
+#insuranseButton {
+    width: 16%;
+    margin-left: 5%;
+}
+
+#sendButton {
+    width: 100%;
+}
+
+#insuranceValue {
+    width: 30%;
+    border:groove;
+}

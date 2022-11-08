@@ -1,0 +1,15 @@
+﻿global using Hospitality.CheckUp.API.Service.Interface;
+global using Hospitality.Common.DTO.CheckUp;
+global using Microsoft.AspNetCore.Mvc;
+global using Hospitality.CheckUp.API.DataBase.Entity;
+global using Microsoft.EntityFrameworkCore;
+global using Hospitality.Common.Middlewares;
+global using Azure.Extensions.AspNetCore.Configuration.Secrets;
+global using Azure.Identity;
+global using Azure.Security.KeyVault.Secrets;
+global using HealthChecks.UI.Client;
+global using Hospitality.CheckUp.API.DataBase.Context;
+global using Hospitality.CheckUp.API.Extensions;
+global using Hospitality.CheckUp.API.Service;
+global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+global using Hospitality.Common.Models.Exceptions;

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configuration
+data:
+  mssql-url: mssql-service
+  rabbitmq-url: rabbitmq-hospitality
+  examination-url: examination-service
+  patient-url: patient-service
+  identity-url: identity-service
+  checkup-url: checkup-service
+  insurance-url: insurance-service
+  gateway-url: gateway-service
+  mongo-url: mongo-service

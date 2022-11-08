@@ -1,0 +1,43 @@
+﻿@using Hospitality.Common.DTO.Temperature
+@model List<PatientTemperaturesViewDTO>
+
+
+<head>
+    <link rel="stylesheet" href="~/css/Result.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div id="resultForm">
+     
+                    <table class="table table-hover table-striped">  
+                        <tr>  
+                            <th>Id </th>  
+                            <th>Description </th>  
+                            <th>Status </th>  
+                        </tr>  
+                        @foreach (var d in Model)  
+                        {  
+                            <tr>  
+                                <td>@d.PatientId</td>  
+                                <td>@d.Temperature</td> 
+                                <td>@d.MeasurementDate</td>
+                            </tr>  
+                        }  
+                    </table> 
+
+    </div>                    <br> <br> <br>  <br>
+
+
+               
+
+                     <p class="buttons">
+                           
+                             <button id="backButton" type="button" class="btn btn-primary" data-toggle="modal" OnClick= "window.close()" > Close window </button>
+                        </a>
+                     </p>
+                 
+                    
+
+
+</body>
+ 

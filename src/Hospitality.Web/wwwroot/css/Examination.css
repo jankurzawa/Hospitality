@@ -1,0 +1,31 @@
+﻿#resultForm {
+    background-color: #d4ebf3;
+    margin-top: 5%;
+    border: 1px solid black;
+    margin-left: 5%;
+    margin-right: 20%;
+}
+
+table {
+}
+
+#backButton {
+    width: 20%;
+    height: 10%;
+    margin-left: 75%;
+}
+
+select {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 80%;
+    height: 10%;
+    margin-bottom: 35%;
+}
+
+#finishButton {
+    width: 40%;
+    height: 50%;
+    font-size: 17px;
+    margin-left: 30%;
+}

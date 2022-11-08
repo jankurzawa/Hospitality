@@ -1,0 +1,25 @@
+﻿#peselLabel, #doctorLabel {
+    font-size: 18px;
+}
+
+#appointForm {
+    background-color: #d4ebf3;
+    margin-top: 10%;
+    border: 1px solid black;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 4%;
+}
+
+.Mytextarea {
+    font-size: 1.5em !important;
+}
+
+
+#resetButton {
+    margin-left: 6%;
+}
+#sendButton, #resetButton {
+    width: 46%;
+    font-size: 18px;
+}

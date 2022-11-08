@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insurance-deployment
+  labels:
+    app: insurance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: insurance
+  template:
+    metadata:
+      labels:
+        app: insurance
+    spec:
+      containers:
+      - name: insurance 
+        image: hospitalitycontainerregistry.azurecr.io/hospitality_insurance:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: insurance-service
+spec:
+  type: ClusterIP  
+  selector:
+    app: insurance
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
